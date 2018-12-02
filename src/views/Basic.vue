@@ -13,13 +13,14 @@
       </div>
       <div class="line-interactive">
         <input
+            ref="location-input"
             v-if="showLocationInput"
             @focus="$event.target.select()"
             @keyup.enter=" showLocationInput = false "
             @blur=" showLocationInput = false "
             class="line"
             v-model.lazy="location">
-        <div v-else @click=" showLocationInput = true ">
+        <div v-else @click="handleLocationClick">
           {{ location }}
         </div>
       </div>
@@ -74,6 +75,12 @@ export default {
           this.error = 'Something went really wrong'
         }
       }
+    },
+    handleLocationClick: function() {
+      this.showLocationInput = true
+      this.$nextTick(function() {
+        const locationInput = this.$refs['location-input'].select()
+      })
     }
   },
   mounted: function () {
