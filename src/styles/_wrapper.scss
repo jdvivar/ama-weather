@@ -1,0 +1,17 @@
+@import 'variables';
+
+@mixin wrapper {
+  padding: 20px 15px 0;
+}
+
+.wrapper {
+  @include wrapper;
+
+  background: $app-background;
+}
+
+.wrapper-inverse {
+  @include wrapper;
+
+  background: invert($app-background);
+}

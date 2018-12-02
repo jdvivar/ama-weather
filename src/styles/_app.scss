@@ -1,0 +1,14 @@
+@import 'variables';
+@import 'fonts';
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+#app {
+  color: $app-color;
+  font-family: $app-font-family;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
