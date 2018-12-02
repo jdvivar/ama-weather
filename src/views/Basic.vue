@@ -60,9 +60,9 @@ export default {
     }
   },
   methods: {
-    updateWeather: async function() {
+    updateWeather: async function () {
       this.error = ''
-      const { temp, text, error} = await basicWeather(this.location)
+      const { temp, text, error } = await basicWeather(this.location)
       this.temperature = temp
       this.conditionText = text
       if (error) {
@@ -76,11 +76,11 @@ export default {
       }
     }
   },
-  mounted: function() {
+  mounted: function () {
     this.updateWeather()
   },
   watch: {
-    location: function(newLocation) {
+    location: function (newLocation) {
       this.updateWeather()
     }
   }
