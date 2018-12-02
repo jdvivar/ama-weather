@@ -45,6 +45,8 @@
 import { basicWeather } from '@/services/yahooApi'
 import TypeSelect from '@/components/TypeSelect.vue'
 
+const defaultLocation = 'Madrid'
+
 export default {
   name: 'basic',
   components: {
@@ -53,7 +55,7 @@ export default {
   data: function () {
     return {
       when: 'now',
-      location: 'Madrid',
+      location: defaultLocation,
       temperature: '',
       conditionText: '',
       error: '',
@@ -88,7 +90,11 @@ export default {
   },
   watch: {
     location: function (newLocation) {
-      this.updateWeather()
+      if (newLocation) {
+        this.updateWeather()
+      } else {
+        this.location = defaultLocation
+      }
     }
   }
 }
