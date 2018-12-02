@@ -76,10 +76,10 @@ export default {
         }
       }
     },
-    handleLocationClick: function() {
+    handleLocationClick: function () {
       this.showLocationInput = true
-      this.$nextTick(function() {
-        const locationInput = this.$refs['location-input'].select()
+      this.$nextTick(function () {
+        this.$refs['location-input'].select()
       })
     }
   },
