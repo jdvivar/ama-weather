@@ -1,7 +1,7 @@
 @import 'variables';
 
 @mixin line {
-  font-size: 50px;
+  font-size: $app-font-size;
   font-weight: 900;
   font-style: italic;
   margin: 0 auto;
