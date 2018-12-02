@@ -1,20 +1,36 @@
 @import 'variables';
 
-@mixin line {
+.line {
   font-size: $app-font-size;
-  font-weight: 900;
+  font-weight: 800;
   font-style: italic;
   margin: 0 auto;
   max-width: $app-width;
   line-height: .8;
   text-transform: uppercase;
-}
 
-.line {
-  @include line;
+  &.--error {
+    font-size: 30px;
+    font-style: normal;
+    line-height: 1;
+  }
+
+  &.--inverse {
+    color: invert($app-color);
+  }
+
+  &.--interactive {
+    cursor: pointer;
+    color: $line-color-interactive;
+  }
 }
 
 input.line {
+  // Browsers struggle to keep same size and weight for an input so this is
+  // a workaround to keep the visual difference as small as possible.
+  font-size: $app-font-size * .85;
+  font-weight: 900;
+
   background: transparent;
   border: none;
   color: $line-color-interactive;
@@ -22,15 +38,4 @@ input.line {
   outline: none;
   padding: inherit;
   width: 100%;
-}
-
-.line-interactive {
-  @include line;
-  color: $line-color-interactive;
-}
-
-.line-inverse {
-  @include line;
-
-  color: invert($app-color);
 }

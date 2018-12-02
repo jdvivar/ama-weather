@@ -1,7 +1,7 @@
 <template>
-  <div class="line">
-    <router-link to="/">Advanced</router-link>
-    <router-link to="/advanced">Basic</router-link>
+  <div class="line --interactive">
+    <router-link to="/">Pro</router-link>
+    <router-link to="/pro">Basic</router-link>
   </div>
 </template>
 <script>
@@ -10,13 +10,7 @@ export default {
 }
 </script>
 
-<style lang='scss' scoped>
-@import '../styles/variables';
-
-.line {
-  color: $line-color-interactive;
-}
-
+<style scoped>
 .router-link-exact-active {
   display: none;
 }

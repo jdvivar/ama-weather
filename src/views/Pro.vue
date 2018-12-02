@@ -1,6 +1,5 @@
 <template>
-  <div class="advanced">
-    I'm the advanced view
+  <div class="pro">
     <TypeSelect />
   </div>
 </template>
@@ -9,7 +8,7 @@
 import TypeSelect from '@/components/TypeSelect.vue'
 
 export default {
-  name: 'advanced',
+  name: 'pro',
   components: {
     TypeSelect
   }
