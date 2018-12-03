@@ -40,8 +40,8 @@ export default {
     reset: function () {
       this.temperatureHigh = ''
       this.temperatureLow = ''
-      this.temperature = ''
-      this.conditionText = ''
+      this.temperature = '...'
+      this.conditionText = '...'
       this.error = ''
     },
     set: function (high, low, temp, text, error) {
