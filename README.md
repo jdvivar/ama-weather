@@ -1,5 +1,7 @@
 # ama-weather
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1aa8b65a9e584fa7a2a939b5004e1521)](https://app.codacy.com/app/jdvivar/ama-weather?utm_source=github.com&utm_medium=referral&utm_content=jdvivar/ama-weather&utm_campaign=Badge_Grade_Dashboard)
+
 ## Project setup
 ```
 npm install
