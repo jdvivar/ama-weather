@@ -1,6 +1,6 @@
 <template>
   <div class="line --interactive" @click="$store.commit('toggleWhen')">
-    {{ this.$store.state.when }}
+    <a>{{ this.$store.state.when }}</a>
   </div>
 </template>
 
