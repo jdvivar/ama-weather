@@ -28,6 +28,9 @@
     <div class="line loading-dots" v-if="showSearching">
       locating
     </div>
+    <div class="line --error" v-if="showHelp">
+      Please make sure the browser has location permissions
+    </div>
   </div>
 </template>
 
@@ -40,6 +43,7 @@ export default {
   data: function () {
     return {
       showLocationInput: false,
+      showHelp: false,
       showSearching: false,
       locationInput: this.$store.state.location.text
     }
@@ -63,9 +67,14 @@ export default {
     locationInput: async function (text, oldText) {
       if (text === 'locate') {
         this.showSearching = true
-        const { coords: { latitude: lat, longitude: lon } } = await getCurrentPosition()
-        this.$store.commit('setLocation', { text: oldText, lat, lon })
-        this.showSearching = false
+        this.showHelp = false
+        try {
+          this.showSearching = false
+          const { coords: { latitude: lat, longitude: lon } } = await getCurrentPosition()
+          this.$store.commit('setLocation', { text: oldText, lat, lon })
+        } catch (error) {
+          this.showHelp = true
+        }
       } else if (text) {
         this.$store.commit('setLocation', { text })
       }

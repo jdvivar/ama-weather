@@ -57,7 +57,7 @@ export default {
       this.set(high, low, temp, text, error)
       if (error) {
         if (error.message.includes('Cannot read property')) {
-          this.error = 'can\'t find that, please type another place 😅'
+          this.error = 'Can\'t find that, please type another place 😅'
         } else if (error.message.includes('Failed to fetch')) {
           this.error = 'Network error, please try later'
         } else {
