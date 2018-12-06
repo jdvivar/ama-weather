@@ -22,6 +22,10 @@
   &.--interactive {
     cursor: pointer;
     color: $line-color-interactive;
+
+    &.--inactive {
+      color: darken($line-color-interactive, 15%);
+    }
   }
 }
 

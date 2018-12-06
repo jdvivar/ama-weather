@@ -7,7 +7,7 @@ const whenOptions = ['now', 'tomorrow']
 
 // Default values
 const when = whenOptions[0]
-const location = 'Madrid'
+const location = { text: 'Madrid' }
 
 export default new Vuex.Store({
   state: {
