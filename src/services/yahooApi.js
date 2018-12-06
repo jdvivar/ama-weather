@@ -45,7 +45,6 @@ function deconstruct (answer, when) {
   }
 }
 
-
 /*
 * Public asynchronous function to return a basic weather object
 */

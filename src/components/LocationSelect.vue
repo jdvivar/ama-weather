@@ -1,17 +1,17 @@
 <template>
   <div>
     <div
-      class="line --interactive"
-      :class="{ '--inactive': locationInput==='locate' }"
+        class="line --interactive"
+        :class="{ '--inactive': locationInput==='locate' }"
       >
       <input
-      ref="location-input"
-      class="line"
-      v-if="showLocationInput"
-      @focus="$event.target.select()"
-      @keyup.enter="showLocationInput = false"
-      @blur="showLocationInput = false"
-      v-model.lazy="locationInput"
+        ref="location-input"
+        class="line"
+        v-if="showLocationInput"
+        @focus="$event.target.select()"
+        @keyup.enter="showLocationInput = false"
+        @blur="showLocationInput = false"
+        v-model.lazy="locationInput"
       >
       <div v-else @click="handleLocationClick">
         {{ location.text }}
@@ -35,10 +35,6 @@
 import { mapState } from 'vuex'
 import { getCurrentPosition, isGeolocationAvailable } from '@/services/geolocationApi'
 
-
-const isSomething = function () {
-  return false
-}
 export default {
   name: 'location-select',
   data: function () {
@@ -67,7 +63,7 @@ export default {
     locationInput: async function (text, oldText) {
       if (text === 'locate') {
         this.showSearching = true
-        const { coords: { latitude: lat, longitude: lon }} = await getCurrentPosition()
+        const { coords: { latitude: lat, longitude: lon } } = await getCurrentPosition()
         this.$store.commit('setLocation', { text: oldText, lat, lon })
         this.showSearching = false
       } else if (text) {
