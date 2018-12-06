@@ -1,9 +1,9 @@
 <template>
   <div>
     <div
-        class="line --interactive"
-        :class="{ '--inactive': locationInput==='locate' }"
-      >
+      class="line --interactive"
+      :class="{ '--inactive': locationInput==='locate' }"
+    >
       <input
         ref="location-input"
         class="line"
@@ -22,7 +22,7 @@
       :class="{ '--inactive': locationInput!=='locate' }"
       v-if="isGeolocationAvailable()"
       @click="locationInput = 'locate'"
-      >
+    >
       ⦿ locate me
     </div>
     <div class="line" v-if="showSearching">
