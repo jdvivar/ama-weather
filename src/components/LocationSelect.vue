@@ -14,7 +14,7 @@
         v-model.lazy="locationInput"
       >
       <div v-else @click="handleLocationClick">
-        {{ location.text }}
+        {{ location.text ? location.text : 'Type a place' }}
       </div>
     </div>
     <div
@@ -25,8 +25,8 @@
     >
       ⦿ locate me
     </div>
-    <div class="line" v-if="showSearching">
-      locating...
+    <div class="line loading-dots" v-if="showSearching">
+      locating
     </div>
   </div>
 </template>
@@ -73,3 +73,37 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+
+.loading-dots:after {
+  content: ' .';
+  animation: waiting-dots 1s steps(5, end) infinite;
+}
+
+@keyframes waiting-dots {
+  0%, 20% {
+    color: rgba(0,0,0,0);
+    text-shadow:
+      .25em 0 0 rgba(0,0,0,0),
+      .5em 0 0 rgba(0,0,0,0);
+  }
+  40% {
+    color: white;
+    text-shadow:
+      .25em 0 0 rgba(0,0,0,0),
+      .5em 0 0 rgba(0,0,0,0);
+  }
+  60% {
+    text-shadow:
+      .25em 0 0 white,
+      .5em 0 0 rgba(0,0,0,0);
+  }
+  80%, 100% {
+    text-shadow:
+      .25em 0 0 white,
+      .5em 0 0 white;
+  }
+}
+
+</style>
