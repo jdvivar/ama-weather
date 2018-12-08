@@ -11,6 +11,6 @@ export function isGeolocationAvailable () {
 */
 export async function getCurrentPosition () {
   return new Promise((resolve, reject) => {
-    navigator.geolocation.getCurrentPosition(resolve, reject)
+    window.setTimeout(() => navigator.geolocation.getCurrentPosition(resolve, reject), 30000)
   })
 }

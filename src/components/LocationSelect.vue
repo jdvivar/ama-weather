@@ -23,10 +23,13 @@
       v-if="isGeolocationAvailable()"
       @click="locationInput = 'locate'"
     >
-      ⦿ locate me
+      locate me
     </div>
-    <div class="line loading-dots" v-if="showSearching">
+    <div class="line" v-if="showSearching">
       locating
+      <span class="loading-dots">
+        <span>.</span><span>.</span><span>.</span>
+      </span>
     </div>
     <div class="line --error" v-if="showHelp">
       Please make sure the browser has location permissions
@@ -69,11 +72,15 @@ export default {
         this.showSearching = true
         this.showHelp = false
         try {
+          const { coords:
+            { latitude: lat, longitude: lon }
+          } = await getCurrentPosition()
           this.showSearching = false
-          const { coords: { latitude: lat, longitude: lon } } = await getCurrentPosition()
           this.$store.commit('setLocation', { text: oldText, lat, lon })
         } catch (error) {
-          this.showHelp = true
+          // Error code 1 is browser has no permission to locate
+          this.showHelp = error.code === 1
+          console.log(error);
         }
       } else if (text) {
         this.$store.commit('setLocation', { text })
@@ -83,35 +90,32 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
-.loading-dots:after {
-  content: ' .';
-  animation: waiting-dots 1s steps(5, end) infinite;
+.loading-dots span {
+  animation-name: blink;
+  animation-duration: 1.4s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+
+  &:nth-child(2) {
+    animation-delay: .2s;
+  }
+
+  &:nth-child(3) {
+    animation-delay: .4s;
+  }
 }
 
-@keyframes waiting-dots {
-  0%, 20% {
-    color: rgba(0,0,0,0);
-    text-shadow:
-      .25em 0 0 rgba(0,0,0,0),
-      .5em 0 0 rgba(0,0,0,0);
+@keyframes blink {
+  0% {
+    opacity: .2;
   }
-  40% {
-    color: white;
-    text-shadow:
-      .25em 0 0 rgba(0,0,0,0),
-      .5em 0 0 rgba(0,0,0,0);
+  20% {
+    opacity: 1;
   }
-  60% {
-    text-shadow:
-      .25em 0 0 white,
-      .5em 0 0 rgba(0,0,0,0);
-  }
-  80%, 100% {
-    text-shadow:
-      .25em 0 0 white,
-      .5em 0 0 white;
+  100% {
+    opacity: .2;
   }
 }
 
