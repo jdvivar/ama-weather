@@ -3,9 +3,12 @@ import { stringify } from 'query-string'
 const endpoint = 'https://query.yahooapis.com/v1/public/yql'
 const format = 'json'
 
-/*
-* Private function to get the right YQL query
-*/
+/**
+ * Get the right YQL query to get the weather info (private)
+ * @param {Object} location
+ * @param {Stting} when
+ * @return {String} the YQL location query
+ */
 function getYQLQuery (location, when) {
   if (when === 'now') {
     // Note item.condition
@@ -19,6 +22,11 @@ function getYQLQuery (location, when) {
   }
 }
 
+/**
+ * Get an YQL location query (private)
+ * @param {Object} location
+ * @return {String} the YQL location query
+ */
 function getYQLLocationQuery ({ text, lat, lon }) {
   if (lat && lon) {
     // This is not production-ready code, that API KEY should be saved
@@ -34,9 +42,12 @@ function getYQLLocationQuery ({ text, lat, lon }) {
   }
 }
 
-/*
-* Private function to deconstruct the answer from the API
-*/
+/**
+ * It deconstructs the answer from the API's object tree (private)
+ * @param {Object} answer
+ * @param {String} when
+ * @return {Object} the actual object we're interested in
+ */
 function deconstruct (answer, when) {
   if (when === 'now') {
     return answer.query.results.channel.item.condition
@@ -45,9 +56,13 @@ function deconstruct (answer, when) {
   }
 }
 
-/*
-* Public asynchronous function to return a basic weather object
-*/
+/**
+ * Get basic weather information (public)
+ * @async
+ * @param {Object} location
+ * @param {String} when
+ * @return {Object}
+ */
 export async function basicWeather (location, when) {
   const q = getYQLQuery(location, when)
   const query = `${endpoint}?${stringify({ q, format })}`

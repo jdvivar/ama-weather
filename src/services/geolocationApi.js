@@ -1,16 +1,24 @@
 
 /*
-* Public function to tell whether geolocation API is available
+* Tell whether geolocation API is available (public)
+* @return {Boolean}
 */
 export function isGeolocationAvailable () {
   return !!navigator.geolocation
 }
 
-/*
-* Public asynchronous function to ask the browser for the current geolocation
-*/
+/**
+ * Ask the browser for the current geolocation (public)
+ * @async
+ * @return {Promise}
+ */
 export async function getCurrentPosition () {
   return new Promise((resolve, reject) => {
-    window.setTimeout(() => navigator.geolocation.getCurrentPosition(resolve, reject), 30000)
+    // The only purpose of this delay is to show off an animation
+    // There's no reason in a production-ready code to delay this operation
+    window.setTimeout(
+      () => navigator.geolocation.getCurrentPosition(resolve, reject),
+      1000
+    )
   })
 }
