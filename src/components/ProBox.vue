@@ -2,7 +2,8 @@
   <div class="ProBox">
     <h3 v-if="title" class="title">{{ title }}</h3>
     <div v-if="image">
-      <img :src="image" />
+      <h1 v-if="showLoadingDots"><LoadingDots /></h1>
+      <img :src="image" @load="showLoadingDots = false"/>
     </div>
     <div v-else class="well">
       <ul>
@@ -23,12 +24,27 @@
 </template>
 
 <script>
+import LoadingDots from '@/components/LoadingDots'
+
 export default {
   name: 'pro-box',
+  data: function () {
+    return {
+      showLoadingDots: true
+    }
+  },
+  components: {
+    LoadingDots
+  },
   props: {
     title: String,
     image: String,
     data: Object
+  },
+  methods: {
+    handleLoad: function () {
+
+    }
   }
 }
 </script>

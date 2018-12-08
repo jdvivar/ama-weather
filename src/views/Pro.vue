@@ -15,10 +15,10 @@
 </template>
 
 <script>
-import TypeSelect from '@/components/TypeSelect.vue'
-import WhenSelect from '@/components/WhenSelect.vue'
-import LocationSelect from '@/components/LocationSelect.vue'
-import ProWeather from '@/components/ProWeather.vue'
+import TypeSelect from '@/components/TypeSelect'
+import WhenSelect from '@/components/WhenSelect'
+import LocationSelect from '@/components/LocationSelect'
+import ProWeather from '@/components/ProWeather'
 
 export default {
   name: 'pro',

@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Basic from '@/views/Basic.vue'
+import Basic from '@/views/Basic'
 
 Vue.use(Router)
 
@@ -15,7 +15,7 @@ export default new Router({
     {
       path: '/pro',
       name: 'pro',
-      component: () => import(/* webpackChunkName: "pro" */ '@/views/Pro.vue')
+      component: () => import(/* webpackChunkName: "pro" */ '@/views/Pro')
     }
   ]
 })

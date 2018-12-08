@@ -5,7 +5,10 @@
     </div>
     <div v-else>
       <div v-if="temperature" class="line --inverse">
-        {{ temperature }}°C
+        <LoadingDots v-if="temperature==='...'" />
+        <div v-else>
+          {{ temperature }}°C
+        </div>
       </div>
       <div v-else class="line --inverse">
         {{ temperatureLow }} ~ {{ temperatureHigh }}°C
@@ -20,9 +23,13 @@
 <script>
 import { mapState } from 'vuex'
 import { getWeather } from '@/services/yahooApi'
+import LoadingDots from '@/components/LoadingDots'
 
 export default {
   name: 'basic-weather',
+  components: {
+    LoadingDots
+  },
   data: function () {
     return {
       temperatureHigh: '',
@@ -41,7 +48,7 @@ export default {
       this.temperatureHigh = ''
       this.temperatureLow = ''
       this.temperature = '...'
-      this.conditionText = '...'
+      this.conditionText = ''
       this.error = ''
     },
     set: function (high, low, temp, text, error) {

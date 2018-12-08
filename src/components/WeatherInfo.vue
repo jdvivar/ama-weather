@@ -59,9 +59,6 @@ export default {
     },
     getImgSrc
   },
-  mounted: function () {
-    console.log('mounted')
-  },
   watch: {
     weatherData: function (newData) {
       // Without this, the component initially renders with an empty object

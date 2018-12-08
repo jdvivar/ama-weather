@@ -16,10 +16,10 @@
 </template>
 
 <script>
-import TypeSelect from '@/components/TypeSelect.vue'
-import WhenSelect from '@/components/WhenSelect.vue'
-import LocationSelect from '@/components/LocationSelect.vue'
-import BasicWeather from '@/components/BasicWeather.vue'
+import TypeSelect from '@/components/TypeSelect'
+import WhenSelect from '@/components/WhenSelect'
+import LocationSelect from '@/components/LocationSelect'
+import BasicWeather from '@/components/BasicWeather'
 
 export default {
   name: 'basic',

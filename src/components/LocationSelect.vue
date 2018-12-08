@@ -27,9 +27,7 @@
     </div>
     <div class="line" v-if="showSearching">
       locating
-      <span class="loading-dots">
-        <span>.</span><span>.</span><span>.</span>
-      </span>
+      <LoadingDots />
     </div>
     <div class="line --error" v-if="showHelp">
       Please make sure the browser has location permissions
@@ -40,9 +38,13 @@
 <script>
 import { mapState } from 'vuex'
 import { getCurrentPosition, isGeolocationAvailable } from '@/services/geolocationApi'
+import LoadingDots from '@/components/LoadingDots'
 
 export default {
   name: 'location-select',
+  components: {
+    LoadingDots
+  },
   data: function () {
     return {
       showLocationInput: false,
@@ -89,34 +91,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-
-.loading-dots span {
-  animation-name: blink;
-  animation-duration: 1.4s;
-  animation-iteration-count: infinite;
-  animation-fill-mode: both;
-
-  &:nth-child(2) {
-    animation-delay: .2s;
-  }
-
-  &:nth-child(3) {
-    animation-delay: .4s;
-  }
-}
-
-@keyframes blink {
-  0% {
-    opacity: .2;
-  }
-  20% {
-    opacity: 1;
-  }
-  100% {
-    opacity: .2;
-  }
-}
-
-</style>

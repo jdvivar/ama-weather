@@ -12,7 +12,7 @@
 <script>
 import { mapState } from 'vuex'
 import { getWeather } from '@/services/yahooApi'
-import WeatherInfo from '@/components/WeatherInfo.vue'
+import WeatherInfo from '@/components/WeatherInfo'
 
 export default {
   name: 'pro-weather',
@@ -41,7 +41,6 @@ export default {
     updateWeather: async function () {
       this.reset()
       const { channel: weatherData, error} = await getWeather(this.location, this.when, 'pro')
-      console.log(weatherData)
       this.set(weatherData, error)
       if (error) {
         if (error.message.includes('Cannot read property')) {
