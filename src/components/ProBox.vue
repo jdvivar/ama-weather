@@ -1,6 +1,6 @@
 <template>
   <div class="ProBox">
-    <h3 class="title">{{ title }}</h3>
+    <h3 v-if="title" class="title">{{ title }}</h3>
     <div v-if="image">
       <img :src="image" />
     </div>
@@ -8,10 +8,13 @@
       <ul>
         <li v-for="(value, key) in data" :key="key">
           <div v-if="key === 'link'">
-            <b>{{ key }}:</b>&nbsp;<a :href="value" target="_blank">{{ value }}</a>
+            <b>{{ key }}:</b>&nbsp;<a :href="value" target="_blank">See this
+              info at Yahoo! Weather</a>
           </div>
           <div v-else>
-            <b>{{key}}:</b> {{ value }}
+            <div v-if="key !== 'code'">
+              <b>{{key}}:</b> {{ value }}
+            </div>
           </div>
         </li>
       </ul>
@@ -39,6 +42,7 @@ export default {
     padding: 20px;
     background-color: rgba(black,.05);
     line-height: 1.42;
+    font-family: monospace;
   }
 
   ul {

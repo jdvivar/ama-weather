@@ -1,7 +1,15 @@
 <template>
   <div v-if="readyToShow" class="WeatherInfo">
 
-    <ProBox title="conditions" :data="destructureConditions(weatherData.item)"/>
+    <h1>Current conditions</h1>
+    <ProBox :data="destructureConditions(weatherData.item)"/>
+
+    <h1>Forecast</h1>
+    <div v-for="day in weatherData.item.forecast">
+      <ProBox :data="day"/>
+    </div>
+
+    <h1>Other</h1>
     <ProBox title="image" :image="getImgSrc(weatherData.item.description)"/>
     <ProBox title="astronomy" :data="weatherData.astronomy"/>
     <ProBox title="atmosphere" :data="weatherData.atmosphere"/>
@@ -10,11 +18,6 @@
     <ProBox title="other" :data="destructureOther(weatherData)"/>
     <ProBox title="units" :data="weatherData.units"/>
 
-    <div class="">
-      forecast <br />
-      {{ weatherData.item ?  weatherData.item.forecast : '' }}
-
-    </div>
 
   </div>
 </template>
@@ -74,7 +77,7 @@ export default {
 
 .WeatherInfo {
   color: black;
-  margin: 0 auto;
+  margin: 20px auto;
   max-width: $app-width;
 }
 </style>
