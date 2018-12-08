@@ -36,14 +36,12 @@ function getYQLQuery (location, when, type) {
  */
 function getYQLLocationQuery ({ text, lat, lon }) {
   if (lat && lon) {
-    // This is not production-ready code, that API KEY should be saved
-    // in an environment variable
     // It took me so much time to discover how to do this with only Yahoo APIs
     // that I helped in stackoverflow with an answer:
     // https://stackoverflow.com/questions/10715381/yahoo-yql-find-city-woeid-by-coordinates/53642481#53642481
     return `select place.woeid from flickr.places(1)
     where lat="${lat}" and lon="${lon}"
-    and api_key="232bfa55946cbf6501032f538de85503"`
+    and api_key="${process.env.VUE_APP_FLICKR_API_KEY}"`
   } else {
     return `select woeid from geo.places(1) where text="${text}"`
   }
