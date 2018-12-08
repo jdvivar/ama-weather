@@ -40,7 +40,7 @@ export default {
     },
     updateWeather: async function () {
       this.reset()
-      const { channel: weatherData, error} = await getWeather(this.location, this.when, 'pro')
+      const { channel: weatherData, error } = await getWeather(this.location, this.when, 'pro')
       this.set(weatherData, error)
       if (error) {
         if (error.message.includes('Cannot read property')) {

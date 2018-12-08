@@ -5,7 +5,7 @@
     <ProBox :data="destructureConditions(weatherData.item)"/>
 
     <h1>Forecast</h1>
-    <div v-for="day in weatherData.item.forecast">
+    <div v-for="(day, index) in weatherData.item.forecast" :key="index">
       <ProBox :data="day"/>
     </div>
 
@@ -17,7 +17,6 @@
     <ProBox title="location" :data="weatherData.location"/>
     <ProBox title="other" :data="destructureOther(weatherData)"/>
     <ProBox title="units" :data="weatherData.units"/>
-
 
   </div>
 </template>
@@ -46,8 +45,7 @@ export default {
   props: {
     weatherData: {
       type: Object,
-      required: true,
-      default: {}
+      required: true
     }
   },
   methods: {

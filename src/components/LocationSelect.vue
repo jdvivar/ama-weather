@@ -82,7 +82,7 @@ export default {
         } catch (error) {
           // Error code 1 is browser has no permission to locate
           this.showHelp = error.code === 1
-          console.log(error);
+          console.log(error)
         }
       } else if (text) {
         this.$store.commit('setLocation', { text })

@@ -16,7 +16,6 @@
 
 <script>
 import TypeSelect from '@/components/TypeSelect'
-import WhenSelect from '@/components/WhenSelect'
 import LocationSelect from '@/components/LocationSelect'
 import ProWeather from '@/components/ProWeather'
 
@@ -24,7 +23,6 @@ export default {
   name: 'pro',
   components: {
     TypeSelect,
-    WhenSelect,
     LocationSelect,
     ProWeather
   }
