@@ -9,7 +9,7 @@
       <ProBox :data="day"/>
     </div>
 
-    <h1>Other</h1>
+    <h1>Miscellanea</h1>
     <ProBox title="image" :image="getImgSrc(weatherData.item.description)"/>
     <ProBox title="astronomy" :data="weatherData.astronomy"/>
     <ProBox title="atmosphere" :data="weatherData.atmosphere"/>
