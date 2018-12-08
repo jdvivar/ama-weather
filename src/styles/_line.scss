@@ -24,7 +24,7 @@
     color: $line-color-interactive;
 
     &.--inactive {
-      color: darken($line-color-interactive, 30%);
+      color: darken($line-color-interactive, 20%);
     }
   }
 }

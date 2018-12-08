@@ -5,7 +5,7 @@
       <div class="line">
         Forecast
       </div>
-      <TimeSelect />
+      <WhenSelect />
       <div class="line">
         In
       </div>
@@ -17,7 +17,7 @@
 
 <script>
 import TypeSelect from '@/components/TypeSelect.vue'
-import TimeSelect from '@/components/TimeSelect.vue'
+import WhenSelect from '@/components/WhenSelect.vue'
 import LocationSelect from '@/components/LocationSelect.vue'
 import BasicWeather from '@/components/BasicWeather.vue'
 
@@ -25,7 +25,7 @@ export default {
   name: 'basic',
   components: {
     TypeSelect,
-    TimeSelect,
+    WhenSelect,
     LocationSelect,
     BasicWeather
   }

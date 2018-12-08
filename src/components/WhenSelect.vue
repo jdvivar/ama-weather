@@ -6,6 +6,6 @@
 
 <script>
 export default {
-  name: 'time-select'
+  name: 'when-select'
 }
 </script>

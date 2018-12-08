@@ -1,0 +1,80 @@
+<template>
+  <div v-if="readyToShow" class="WeatherInfo">
+
+    <ProBox title="conditions" :data="destructureConditions(weatherData.item)"/>
+    <ProBox title="image" :image="getImgSrc(weatherData.item.description)"/>
+    <ProBox title="astronomy" :data="weatherData.astronomy"/>
+    <ProBox title="atmosphere" :data="weatherData.atmosphere"/>
+    <ProBox title="wind" :data="weatherData.wind"/>
+    <ProBox title="location" :data="weatherData.location"/>
+    <ProBox title="other" :data="destructureOther(weatherData)"/>
+    <ProBox title="units" :data="weatherData.units"/>
+
+    <div class="">
+      forecast <br />
+      {{ weatherData.item ?  weatherData.item.forecast : '' }}
+
+    </div>
+
+  </div>
+</template>
+
+<script>
+import ProBox from '@/components/ProBox'
+
+// Get everything after *
+// This is needed because the API returns malformed URLs
+const getLink = link => /(?<=\*).*/.exec(link)[0]
+
+// Get img src value
+// This is needed because an image is supplied as part of markup
+const getImgSrc = markup => /(?<=img src=")[^"]*/.exec(markup)[0]
+
+export default {
+  name: 'weather-info',
+  components: {
+    ProBox
+  },
+  data: function () {
+    return {
+      readyToShow: false
+    }
+  },
+  props: {
+    weatherData: {
+      type: Object,
+      required: true,
+      default: {}
+    }
+  },
+  methods: {
+    destructureConditions: function ({ lat, long, title, condition }) {
+      return { lat, long, title, ...condition }
+    },
+    destructureOther: function ({ title, ttl, link, lastBuildDate, language }) {
+      return { title, ttl, link: getLink(link), lastBuildDate, language }
+    },
+    getImgSrc
+  },
+  mounted: function () {
+    console.log('mounted')
+  },
+  watch: {
+    weatherData: function (newData) {
+      // Without this, the component initially renders with an empty object
+      // (because it's not a 1st level change)
+      this.readyToShow = !!newData.item
+    }
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+@import '../styles/variables';
+
+.WeatherInfo {
+  color: black;
+  margin: 0 auto;
+  max-width: $app-width;
+}
+</style>

@@ -4,15 +4,7 @@
       {{ error }}
     </div>
     <div v-else>
-      <div v-if="temperature" class="line --inverse">
-        {{ temperature }}°C
-      </div>
-      <div v-else class="line --inverse">
-        {{ temperatureLow }} ~ {{ temperatureHigh }}°C
-      </div>
-      <div class="line --inverse">
-        {{ conditionText }}
-      </div>
+      <weatherInfo :weatherData="weatherData" />
     </div>
   </div>
 </template>
@@ -20,15 +12,16 @@
 <script>
 import { mapState } from 'vuex'
 import { getWeather } from '@/services/yahooApi'
+import WeatherInfo from '@/components/WeatherInfo.vue'
 
 export default {
-  name: 'basic-weather',
+  name: 'pro-weather',
+  components: {
+    WeatherInfo
+  },
   data: function () {
     return {
-      temperatureHigh: '',
-      temperatureLow: '',
-      temperature: '',
-      conditionText: '',
+      weatherData: {},
       error: ''
     }
   },
@@ -38,23 +31,18 @@ export default {
   ]),
   methods: {
     reset: function () {
-      this.temperatureHigh = ''
-      this.temperatureLow = ''
-      this.temperature = '...'
-      this.conditionText = '...'
+      this.weatherData = {}
       this.error = ''
     },
-    set: function (high, low, temp, text, error) {
-      this.temperatureHigh = high
-      this.temperatureLow = low
-      this.temperature = temp
-      this.conditionText = text
+    set: function (weatherData, error) {
+      this.weatherData = weatherData
       this.error = error
     },
     updateWeather: async function () {
       this.reset()
-      const { high, low, temp, text, error } = await getWeather(this.location, this.when, 'basic')
-      this.set(high, low, temp, text, error)
+      const { channel: weatherData, error} = await getWeather(this.location, this.when, 'pro')
+      console.log(weatherData)
+      this.set(weatherData, error)
       if (error) {
         if (error.message.includes('Cannot read property')) {
           this.error = 'Can\'t find that, please type another place 😅'

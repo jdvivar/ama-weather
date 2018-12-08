@@ -9,12 +9,19 @@ const format = 'json'
  * @param {Stting} when
  * @return {String} the YQL location query
  */
-function getYQLQuery (location, when) {
+function getYQLQuery (location, when, type) {
+  if (type === 'pro') {
+    return `select * from weather.forecast where woeid in
+        (${getYQLLocationQuery(location)}) and u='c'`
+  }
+
   if (when === 'now') {
     // Note item.condition
     return `select item.condition from weather.forecast where woeid in
         (${getYQLLocationQuery(location)}) and u='c'`
-  } else if (when === 'tomorrow') {
+  }
+
+  if (when === 'tomorrow') {
     // Note item.forecast and limit 1
     return `select item.forecast from weather.forecast where woeid in
         (${getYQLLocationQuery(location)}) and u='c'
@@ -48,29 +55,36 @@ function getYQLLocationQuery ({ text, lat, lon }) {
  * @param {String} when
  * @return {Object} the actual object we're interested in
  */
-function deconstruct (answer, when) {
+function getAnswer (answer, when, type) {
+  if (type === 'pro') {
+    return answer.query.results
+  }
+
   if (when === 'now') {
     return answer.query.results.channel.item.condition
-  } else if (when === 'tomorrow') {
+  }
+
+  if (when === 'tomorrow') {
     return answer.query.results.channel.item.forecast
   }
 }
 
 /**
- * Get basic weather information (public)
+ * Get weather information (public)
  * @async
- * @param {Object} location
- * @param {String} when
+ * @param {Object} location - location object
+ * @param {String} when - either now or tomorrow
+ * @param {String} type - either pro or basic
  * @return {Object}
  */
-export async function basicWeather (location, when) {
-  const q = getYQLQuery(location, when)
+export async function getWeather (location, when, type) {
+  const q = getYQLQuery(location, when, type)
   const query = `${endpoint}?${stringify({ q, format })}`
   try {
     // Fetch API is only for modern browsers
     // I'd use axios for production-ready code
     const answer = await (await fetch(query)).json()
-    return deconstruct(answer, when)
+    return getAnswer(answer, when, type)
   } catch (error) {
     return { error }
   }
