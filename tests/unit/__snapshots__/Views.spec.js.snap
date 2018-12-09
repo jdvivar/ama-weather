@@ -17,7 +17,7 @@ exports[`Views Basic view has correct markup 1`] = `
 </div>
 `;
 
-exports[`Views Basic view has correct markup 2`] = `
+exports[`Views Pro view has correct markup 1`] = `
 <div class="pro">
   <div class="wrapper">
     <typeselect-stub></typeselect-stub>
