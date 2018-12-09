@@ -3,9 +3,12 @@ import Basic from '@/views/Basic'
 import Pro from '@/views/Pro'
 
 describe('Views', () => {
-  it('Has correct copy', () => {
+  it('Basic view has correct markup', () => {
     const wrapper = shallowMount(Basic)
-    expect(wrapper.text()).toEqual(expect.stringContaining('Forecast'))
-    expect(wrapper.text()).toEqual(expect.stringContaining('In'))
+    expect(wrapper.html()).toMatchSnapshot()
+  })
+  it('Basic view has correct markup', () => {
+    const wrapper = shallowMount(Pro)
+    expect(wrapper.html()).toMatchSnapshot()
   })
 })

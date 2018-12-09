@@ -2,8 +2,8 @@ import { shallowMount } from '@vue/test-utils'
 import LoadingDots from '@/components/LoadingDots'
 
 describe('LoadingDots', () => {
-  it('renders with 3 dots', () => {
+  it('has correct markup', () => {
     const wrapper = shallowMount(LoadingDots)
-    expect(wrapper.text()).toMatch('...')
+    expect(wrapper.html()).toMatchSnapshot()
   })
 })

@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Views Basic view has correct markup 1`] = `
+<div class="basic">
+  <div class="wrapper">
+    <typeselect-stub></typeselect-stub>
+    <div class="line">
+      Forecast
+    </div>
+    <whenselect-stub></whenselect-stub>
+    <div class="line">
+      In
+    </div>
+    <locationselect-stub></locationselect-stub>
+  </div>
+  <basicweather-stub></basicweather-stub>
+</div>
+`;
+
+exports[`Views Basic view has correct markup 2`] = `
+<div class="pro">
+  <div class="wrapper">
+    <typeselect-stub></typeselect-stub>
+    <div class="line">
+      Weather
+    </div>
+    <div class="line">
+      In
+    </div>
+    <locationselect-stub></locationselect-stub>
+  </div>
+  <proweather-stub></proweather-stub>
+</div>
+`;
