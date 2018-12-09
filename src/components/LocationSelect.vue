@@ -2,7 +2,7 @@
   <div>
     <div
       class="line --interactive"
-      :class="{ '--inactive': locationInput==='locate' }"
+      :class="{ '--inactive': location.locate }"
     >
       <input
         ref="location-input"
@@ -19,9 +19,9 @@
     </div>
     <div
       class="line --interactive"
-      :class="{ '--inactive': locationInput!=='locate' }"
+      :class="{ '--inactive': !location.locate }"
       v-if="isGeolocationAvailable()"
-      @click="locationInput = 'locate'"
+      @click="handleLocateMeClick"
     >
       locate me
     </div>
@@ -66,26 +66,28 @@ export default {
         this.$refs['location-input'].select()
       })
     },
+    handleLocateMeClick: async function () {
+      this.$store.commit('setLocation', { ...this.location, locate: true })
+      this.showSearching = true
+      this.showHelp = false
+      try {
+        const { coords:
+          { latitude: lat, longitude: lon }
+        } = await getCurrentPosition()
+        this.showSearching = false
+        this.$store.commit('setLocation', { ...this.location, lat, lon })
+      } catch (error) {
+        // Error code 1 is browser has no permission to locate
+        this.showHelp = error.code === 1
+        console.log(error)
+      }
+    },
     isGeolocationAvailable
   },
   watch: {
-    locationInput: async function (text, oldText) {
-      if (text === 'locate') {
-        this.showSearching = true
-        this.showHelp = false
-        try {
-          const { coords:
-            { latitude: lat, longitude: lon }
-          } = await getCurrentPosition()
-          this.showSearching = false
-          this.$store.commit('setLocation', { text: oldText, lat, lon })
-        } catch (error) {
-          // Error code 1 is browser has no permission to locate
-          this.showHelp = error.code === 1
-          console.log(error)
-        }
-      } else if (text) {
-        this.$store.commit('setLocation', { text })
+    locationInput: function (text) {
+      if (text) {
+        this.$store.commit('setLocation', { ...this.location, text, locate: false })
       }
     }
   }

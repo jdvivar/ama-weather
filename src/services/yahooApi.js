@@ -34,8 +34,8 @@ function getYQLQuery (location, when, type) {
  * @param {Object} location
  * @return {String} the YQL location query
  */
-function getYQLLocationQuery ({ text, lat, lon }) {
-  if (lat && lon) {
+function getYQLLocationQuery ({ text, lat, lon, locate }) {
+  if (locate && lat && lon) {
     // It took me so much time to discover how to do this with only Yahoo APIs
     // that I helped in stackoverflow with an answer:
     // https://stackoverflow.com/questions/10715381/yahoo-yql-find-city-woeid-by-coordinates/53642481#53642481

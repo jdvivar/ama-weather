@@ -9,17 +9,17 @@ import {
 describe('Yahoo API service', () => {
   it('Weather data for basic now request', async () => {
     fetchMock.getOnce(BasicNowQuery, BasicNowAnswer)
-    const fetchedData = await getWeather({ lat: '50', lon: '1'}, 'now', 'basic')
+    const fetchedData = await getWeather({ lat: '50', lon: '1', locate: 'true' }, 'now', 'basic')
     expect(fetchedData).toEqual(BasicNowReply)
   })
   it('Weather data for basic tomorrow request', async () => {
     fetchMock.getOnce(BasicTomorrowQuery, BasicTomorrowAnswer)
-    const fetchedData = await getWeather({ lat: '50', lon: '1'}, 'tomorrow', 'basic')
+    const fetchedData = await getWeather({ lat: '50', lon: '1', locate: 'true' }, 'tomorrow', 'basic')
     expect(fetchedData).toEqual(BasicTomorrowReply)
   })
   it('Weather data for pro request', async () => {
     fetchMock.getOnce(ProQuery, ProAnswer)
-    const fetchedData = await getWeather({ text: 'Barcelona' }, '', 'pro')
+    const fetchedData = await getWeather({ text: 'Barcelona', locate: 'false' }, '', 'pro')
     expect(fetchedData).toEqual(ProReply)
   })
 })
