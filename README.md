@@ -77,8 +77,9 @@ npm run test:unit
 - Unit tests with Jest (although the coverage is not 100%)
   - Mocking fetch requests
 - E2E tests with Cypress
+- Tests can easily be required for a continous delivery approach
 - Set up to deploy automatically to a custom domain: https://ama-weather.danielvivar.com
-- Continuous delivery and deployment with Netlify
+- Continuous deployment with Netlify
 - Set up automatic code quality reviews in pull requests and badge showing code quality level by Codacy (see top of this file)
 - Linting configured with StandardJS, will try to automatically fix errors
 - Using all possible favicon images
