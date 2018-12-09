@@ -1,10 +1,39 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ProBox has correct markup 1`] = `
+exports[`ProBox has correct markup 1`] = `undefined`;
+
+exports[`ProBox has correct markup with title and data 1`] = `
 <div class="ProBox">
-  <!---->
+  <h3 class="title">Hello</h3>
   <div class="well">
-    <ul></ul>
+    <ul>
+      <li>
+        <div><b>link:</b>&nbsp;<a href="links are shown as A tags" target="_blank">See this
+            info at Yahoo! Weather</a></div>
+      </li>
+      <li>
+        <div>
+          <!---->
+        </div>
+      </li>
+      <li>
+        <div>
+          <div><b>key:</b> all others are shown as usual
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+`;
+
+exports[`ProBox has correct markup with title and image 1`] = `
+<div class="ProBox">
+  <h3 class="title">Hello</h3>
+  <div>
+    <h1>
+      <loadingdots-stub></loadingdots-stub>
+    </h1> <img src="imageUrl">
   </div>
 </div>
 `;

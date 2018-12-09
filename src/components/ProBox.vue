@@ -1,5 +1,5 @@
 <template>
-  <div class="ProBox">
+  <div v-if="data || image" class="ProBox">
     <h3 v-if="title" class="title">{{ title }}</h3>
     <div v-if="image">
       <h1 v-if="showLoadingDots"><LoadingDots /></h1>
@@ -40,11 +40,6 @@ export default {
     title: String,
     image: String,
     data: Object
-  },
-  methods: {
-    handleLoad: function () {
-
-    }
   }
 }
 </script>
