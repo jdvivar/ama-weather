@@ -1,7 +1,7 @@
 <template>
-  <div class="line --interactive">
-    <router-link to="/">Pro</router-link>
-    <router-link to="/pro">Basic</router-link>
+  <div id="type-select" class="line --interactive">
+    <router-link to="/">pro</router-link>
+    <router-link to="/pro">basic</router-link>
   </div>
 </template>
 <script>

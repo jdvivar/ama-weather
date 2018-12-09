@@ -5,11 +5,11 @@ exports[`Views Basic view has correct markup 1`] = `
   <div class="wrapper">
     <typeselect-stub></typeselect-stub>
     <div class="line">
-      Forecast
+      forecast
     </div>
     <whenselect-stub></whenselect-stub>
     <div class="line">
-      In
+      in
     </div>
     <locationselect-stub></locationselect-stub>
   </div>
@@ -22,10 +22,10 @@ exports[`Views Pro view has correct markup 1`] = `
   <div class="wrapper">
     <typeselect-stub></typeselect-stub>
     <div class="line">
-      Weather
+      weather
     </div>
     <div class="line">
-      In
+      in
     </div>
     <locationselect-stub></locationselect-stub>
   </div>

@@ -1,5 +1,5 @@
 <template>
-  <div class="line --interactive" @click="$store.commit('toggleWhen')">
+  <div id="when-select" class="line --interactive" @click="$store.commit('toggleWhen')">
     <a>{{ this.$store.state.when }}</a>
   </div>
 </template>

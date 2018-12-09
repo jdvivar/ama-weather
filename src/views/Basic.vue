@@ -3,11 +3,11 @@
     <div class="wrapper">
       <TypeSelect />
       <div class="line">
-        Forecast
+        forecast
       </div>
       <WhenSelect />
       <div class="line">
-        In
+        in
       </div>
       <LocationSelect />
     </div>

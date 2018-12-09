@@ -1,6 +1,7 @@
 <template>
   <div>
     <div
+      id="location-select"
       class="line --interactive"
       :class="{ '--inactive': location.locate }"
     >
@@ -18,6 +19,7 @@
       </div>
     </div>
     <div
+      id="locate-me"
       class="line --interactive"
       :class="{ '--inactive': !location.locate }"
       v-if="isGeolocationAvailable()"

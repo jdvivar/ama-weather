@@ -3,10 +3,10 @@
     <div class="wrapper">
       <TypeSelect />
       <div class="line">
-        Weather
+        weather
       </div>
       <div class="line">
-        In
+        in
       </div>
       <LocationSelect />
     </div>
