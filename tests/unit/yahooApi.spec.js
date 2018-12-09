@@ -4,9 +4,9 @@ import {
   BasicNowQuery, BasicNowAnswer, BasicNowReply,
   BasicTomorrowQuery, BasicTomorrowAnswer, BasicTomorrowReply,
   ProQuery, ProAnswer, ProReply,
-} from './yahooApi.mocks.js'
+} from './mocks/yahooApi'
 
-describe('Yahoo API service', () => {  
+describe('Yahoo API service', () => {
   it('Weather data for basic now request', async () => {
     fetchMock.getOnce(BasicNowQuery, BasicNowAnswer)
     const fetchedData = await getWeather({ lat: '50', lon: '1'}, 'now', 'basic')
