@@ -1,19 +1,11 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import { initialState as state, whenOptions } from './initialState'
 
 Vue.use(Vuex)
 
-const whenOptions = ['now', 'tomorrow']
-
-// Default values
-const when = whenOptions[0]
-const location = { text: 'Madrid' }
-
 export default new Vuex.Store({
-  state: {
-    when,
-    location
-  },
+  state,
   mutations: {
     toggleWhen (state) {
       const currentIndex = whenOptions.indexOf(state.when)

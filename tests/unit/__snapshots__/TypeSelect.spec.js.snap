@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TypeSelect has correct markup 1`] = `
+<div class="line --interactive">
+  <router-link-stub to="/">Pro</router-link-stub>
+  <router-link-stub to="/pro">Basic</router-link-stub>
+</div>
+`;

@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProBox has correct markup 1`] = `
+<div class="ProBox">
+  <!---->
+  <div class="well">
+    <ul></ul>
+  </div>
+</div>
+`;
