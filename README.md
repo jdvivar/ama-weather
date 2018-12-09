@@ -3,7 +3,7 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/1aa8b65a9e584fa7a2a939b5004e1521)](https://app.codacy.com/app/jdvivar/ama-weather?utm_source=github.com&utm_medium=referral&utm_content=jdvivar/ama-weather&utm_campaign=Badge_Grade_Dashboard)
 
 ## Requirements
-- Supply a Flickr API key as explained in [.env.example](repo/blob/master/.env.example)
+- Supply a Flickr API key as explained in [.env.example](.env.example)
 
 ## Recommended
 - I recommend you to use Vue UI (part of the [Vue CLI](https://cli.vuejs.org)) so that you can run all commands, serve or build the app, execute the tests, etc. by just pointing and clicking. Just do:
