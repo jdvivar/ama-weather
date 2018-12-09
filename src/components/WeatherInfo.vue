@@ -1,28 +1,32 @@
 <template>
-  <div v-if="readyToShow" class="WeatherInfo">
+  <div>
+    <div v-if="readyToShow" class="WeatherInfo">
 
-    <h1>Current conditions</h1>
-    <ProBox :data="destructureConditions(weatherData.item)"/>
+      <h1>Current conditions</h1>
+      <ProBox :data="destructureConditions(weatherData.item)"/>
 
-    <h1>Forecast</h1>
-    <div v-for="(day, index) in weatherData.item.forecast" :key="index">
-      <ProBox :data="day"/>
+      <h1>Forecast</h1>
+      <div v-for="(day, index) in weatherData.item.forecast" :key="index">
+        <ProBox :data="day"/>
+      </div>
+
+      <h1>Miscellanea</h1>
+      <ProBox title="image" :image="getImgSrc(weatherData.item.description)"/>
+      <ProBox title="astronomy" :data="weatherData.astronomy"/>
+      <ProBox title="atmosphere" :data="weatherData.atmosphere"/>
+      <ProBox title="wind" :data="weatherData.wind"/>
+      <ProBox title="location" :data="weatherData.location"/>
+      <ProBox title="other" :data="destructureOther(weatherData)"/>
+      <ProBox title="units" :data="weatherData.units"/>
+
     </div>
-
-    <h1>Miscellanea</h1>
-    <ProBox title="image" :image="getImgSrc(weatherData.item.description)"/>
-    <ProBox title="astronomy" :data="weatherData.astronomy"/>
-    <ProBox title="atmosphere" :data="weatherData.atmosphere"/>
-    <ProBox title="wind" :data="weatherData.wind"/>
-    <ProBox title="location" :data="weatherData.location"/>
-    <ProBox title="other" :data="destructureOther(weatherData)"/>
-    <ProBox title="units" :data="weatherData.units"/>
-
+    <h1 v-else><LoadingDots /></h1>
   </div>
 </template>
 
 <script>
 import ProBox from '@/components/ProBox'
+import LoadingDots from '@/components/LoadingDots'
 
 // Get everything after *
 // This is needed because the API returns malformed URLs
@@ -35,7 +39,8 @@ const getImgSrc = markup => /(?<=img src=")[^"]*/.exec(markup)[0]
 export default {
   name: 'weather-info',
   components: {
-    ProBox
+    ProBox,
+    LoadingDots
   },
   data: function () {
     return {

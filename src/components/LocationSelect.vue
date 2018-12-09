@@ -9,7 +9,7 @@
         class="line"
         v-if="showLocationInput"
         @focus="$event.target.select()"
-        @keyup.enter="showLocationInput = false"
+        @keyup.enter="handleLocationInputEnter"
         @blur="showLocationInput = false"
         v-model.lazy="locationInput"
       >
@@ -57,8 +57,18 @@ export default {
     'location'
   ]),
   methods: {
+    handleLocationInputEnter: function () {
+      this.showLocationInput = false
+      if (this.locationInput) {
+        this.$store.commit('setLocation', {
+          ...this.location,
+          text: this.locationInput,
+          locate: false
+        })
+      }
+    },
     handleLocationClick: function () {
-      this.locationInput = location.text
+      // this.locationInput = location.text
       this.showLocationInput = true
       this.$nextTick(function () {
         // The previous statement re-renders and the input doesn't exist in
