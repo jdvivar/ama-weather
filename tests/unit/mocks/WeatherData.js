@@ -1,5 +1,5 @@
-export default {
-  propsData: {
-    weatherData: {}
-  }
+import { ProReply as weatherData } from './yahooApi'
+
+export const WeatherDataMock = {
+  weatherData
 }
