@@ -12,7 +12,6 @@ describe('Basic view', () => {
     cy
       .contains('a', 'pro')
       .should('not.be.visible')
-
   })
 
   it('change time to tomorrow', () => {
@@ -34,7 +33,6 @@ describe('Basic view', () => {
     cy
       .get('#location-select input')
       .type('san francisco{enter}')
-
   })
 
   it('locate user', () => {

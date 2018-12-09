@@ -12,7 +12,6 @@ localVue.use(Vuex)
 // Vue re-renders after the initial prop object is processed
 
 describe('WhenSelect', () => {
-
   let store
 
   beforeEach(() => {

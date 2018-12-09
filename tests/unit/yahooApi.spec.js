@@ -3,7 +3,7 @@ import { getWeather } from '@/services/yahooApi'
 import {
   BasicNowQuery, BasicNowAnswer, BasicNowReply,
   BasicTomorrowQuery, BasicTomorrowAnswer, BasicTomorrowReply,
-  ProQuery, ProAnswer, ProReply,
+  ProQuery, ProAnswer, ProReply
 } from './mocks/yahooApi'
 
 describe('Yahoo API service', () => {

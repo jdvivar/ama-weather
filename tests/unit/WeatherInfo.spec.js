@@ -15,8 +15,8 @@ describe('WeatherInfo', () => {
       propsData
     })
     return localVue.nextTick()
-    .then(function () {
-      expect(wrapper.html()).toMatchSnapshot()
-    })
+      .then(function () {
+        expect(wrapper.html()).toMatchSnapshot()
+      })
   })
 })

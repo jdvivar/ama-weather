@@ -16,8 +16,8 @@ describe('Pro view', () => {
       .get('#location-select')
       .click()
 
-      cy
-        .contains('lat: 40.421429')
+    cy
+      .contains('lat: 40.421429')
 
     cy
       .get('#location-select input')

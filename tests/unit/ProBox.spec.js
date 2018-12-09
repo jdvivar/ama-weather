@@ -13,7 +13,7 @@ describe('ProBox', () => {
         data: {
           link: 'links are shown as A tags',
           code: 'codes are not relevant, therefore hidden',
-          key: 'all others are shown as usual',
+          key: 'all others are shown as usual'
         }
       }
     })

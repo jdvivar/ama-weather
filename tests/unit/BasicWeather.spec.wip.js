@@ -4,7 +4,6 @@ import BasicWeather from '@/components/BasicWeather'
 const localVue = createLocalVue()
 
 describe('BasicWeather', () => {
-
   let store
 
   beforeEach(() => {
@@ -14,7 +13,7 @@ describe('BasicWeather', () => {
   })
 
   it('has correct markup', () => {
-    const wrapper = shallowMount(BasicWeather)
+    const wrapper = shallowMount(BasicWeather, { store, localVue })
     expect(wrapper.html()).toMatchSnapshot()
   })
 })
