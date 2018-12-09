@@ -10,12 +10,16 @@
 ```
 # Install local packages
 npm install
+```
+```
 # Install Vue CLI
 npm install --global @vue/cli
-# after successful installation
+```
+```
+# Start the UI
 vue ui
 ```
-and voilà, that's all. Using the UI you don't need to know/use the commands shown below.
+and voilà, that's all. By using the UI you don't need to know by heart any of the commands shown below.
 
 ## Commands
 #### Project setup
