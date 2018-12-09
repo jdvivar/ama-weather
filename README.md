@@ -1,5 +1,7 @@
 # ama-weather
 
+https://ama-weather.danielvivar.com
+
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/1aa8b65a9e584fa7a2a939b5004e1521)](https://app.codacy.com/app/jdvivar/ama-weather?utm_source=github.com&utm_medium=referral&utm_content=jdvivar/ama-weather&utm_campaign=Badge_Grade_Dashboard)
 
 ## Requirements
@@ -52,5 +54,30 @@ npm run test:e2e
 npm run test:unit
 ```
 
-## Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Technologies, patterns and tools used for this project
+- Vue.js 2 as the frontend framework
+- Vue CLI as the tool to manage app development
+- Webpack 4 as the bundler
+- Babel as the JavaScript compiler
+- Everything is written in ES6 (ES7 for async/await)
+- All asynchronous processes used async/await
+- Styling:
+  - Using SCSS styles with SASS pre-processor with autoprefixer
+  - Shared variables
+  - Including the showcase of 2 different patterns: `line.scss` shows how to use state classes while as the same problem is solved using mixins in `wrapper.scss`
+  - Creating a new custom font family
+  - CSS animations, as shown in `LoadingDots` component
+- Used SFC (Single File Components) in Vue.js
+- Used Vuex for global state management
+- Used Vue Router for routing with lazy loaded Webpack named chunks, for high performance
+- Environment variables via (dot)env files
+- Creation of asynchronous API clients for all services
+- Using patterns to show loading states and correctly handling errors
+- Implementing a design without the use of any CSS framework
+- Unit tests with Jest (although the coverage is not 100%)
+  - Mocking fetch requests
+- E2E tests with Cypress
+- Set up to deploy automatically to a custom domain: https://ama-weather.danielvivar.com
+- Continuous delivery and deployment with Netlify
+- Set up automatic code quality reviews in pull requests and badge showing code quality level by Codacy (see top of this file)
+- Linting configured with StandardJS, will try to automatically fix errors
