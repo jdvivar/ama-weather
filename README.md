@@ -81,3 +81,4 @@ npm run test:unit
 - Continuous delivery and deployment with Netlify
 - Set up automatic code quality reviews in pull requests and badge showing code quality level by Codacy (see top of this file)
 - Linting configured with StandardJS, will try to automatically fix errors
+- Using all possible favicon images
