@@ -23,6 +23,7 @@ vue ui
 ```
 and voilà, that's all. By using the UI you don't need to know by heart any of the commands shown below.
 
+
 ## Commands
 #### Project setup
 ```
@@ -83,3 +84,12 @@ npm run test:unit
 - Set up automatic code quality reviews in pull requests and badge showing code quality level by Codacy (see top of this file)
 - Linting configured with StandardJS, will try to automatically fix errors
 - Using all possible favicon images
+
+## Screenshots
+
+### Vue UI building the app
+![](docs/ama-weather-vue-ui.gif)
+### Jest exectuing unit tests
+![](docs/ama-weather-jest.gif)
+### Cypress exectuing E2E tests
+![](docs/ama-weather-cypress.gif)
