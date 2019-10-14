@@ -2,7 +2,7 @@
 
 https://ama-weather.danielvivar.com
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1aa8b65a9e584fa7a2a939b5004e1521)](https://app.codacy.com/app/jdvivar/ama-weather?utm_source=github.com&utm_medium=referral&utm_content=jdvivar/ama-weather&utm_campaign=Badge_Grade_Dashboard)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1aa8b65a9e584fa7a2a939b5004e1521)](https://app.codacy.com/app/jdvivar/ama-weather?utm_source=github.com&utm_medium=referral&utm_content=jdvivar/ama-weather&utm_campaign=Badge_Grade_Dashboard) [![Netlify Status](https://api.netlify.com/api/v1/badges/29fc4057-69e0-40ba-86d7-8079414464a1/deploy-status)](https://app.netlify.com/sites/ama-weather/deploys)
 
 ## Requirements
 - Supply a Flickr API key as explained in [.env.example](.env.example)
