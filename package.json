@@ -30,7 +30,7 @@
     "eslint-plugin-vue": "^5.0.0-0",
     "fetch-mock": "^7.2.5",
     "node-fetch": "^2.3.0",
-    "node-sass": "^4.9.0",
+    "node-sass": "^7.0.0",
     "sass-loader": "^7.0.1",
     "vue-template-compiler": "^2.5.17"
   },
